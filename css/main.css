@@ -1,8 +1,8 @@
 :root{
-    --pale: rgb(251, 247, 200);
-    --yellow: #f9ea4a;
+    --pale: rgb(74, 142, 210);
+    --yellow: #ed4f44;
     --pink: rgb(245, 83, 110);
-    --purple: rgb(211, 185, 255);
+    --purple: #ed4f44;
 }
 
 /* button */

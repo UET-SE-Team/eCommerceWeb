@@ -327,19 +327,19 @@ body {
 	margin-bottom: 10px;
 	color: var(--dark);
 }
-#content main .head-title .left .breadcrumb {
+#content main .head-title .left  {
 	display: flex;
 	align-items: center;
 	grid-gap: 16px;
 }
-#content main .head-title .left .breadcrumb li {
+#content main .head-title .left li {
 	color: var(--dark);
 }
-#content main .head-title .left .breadcrumb li a {
+#content main .head-title .left li a {
 	color: var(--dark-grey);
 	pointer-events: none;
 }
-#content main .head-title .left .breadcrumb li a.active {
+#content main .head-title .left li a.active {
 	color: var(--blue);
 	pointer-events: unset;
 }
@@ -364,6 +364,7 @@ body {
 	grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
 	grid-gap: 24px;
 	margin-top: 36px;
+	
 }
 #content main .box-info li {
 	padding: 24px;
@@ -372,6 +373,7 @@ body {
 	display: flex;
 	align-items: center;
 	grid-gap: 24px;
+	
 }
 #content main .box-info li .bx {
 	width: 80px;
@@ -381,18 +383,23 @@ body {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	
+	
 }
-#content main .box-info li:nth-child(1) .bx {
-	background: var(--light-blue);
+#content main .box-info li:nth-child(1) {
+	background-color: var(--light-blue);
 	color: var(--blue);
+	border-left: 10px solid var(--blue);
 }
-#content main .box-info li:nth-child(2) .bx {
+#content main .box-info li:nth-child(2) {
 	background: var(--light-green);
 	color: var(--green);
+	border-left: 10px solid var(--green);
 }
-#content main .box-info li:nth-child(3) .bx {
+#content main .box-info li:nth-child(3) {
 	background: var(--light-orange);
 	color: var(--orange);
+	border-left: 10px solid var(--orange);
 }
 #content main .box-info li .text h3 {
 	font-size: 24px;
@@ -476,10 +483,10 @@ body {
 	font-weight: 700;
 }
 #content main .table-data .order table tr td .status.completed {
-	background: var(--blue);
+	background: var(--green);
 }
 #content main .table-data .order table tr td .status.process {
-	background: var(--green);
+	background: var(--blue);
 }
 #content main .table-data .order table tr td .status.pending {
 	background: var(--orange);
@@ -507,7 +514,7 @@ body {
 	cursor: pointer;
 }
 #content main .table-data .todo .todo-list li.completed {
-	border-left: 10px solid var(--blue);
+	border-left: 10px solid var(--green);
 }
 #content main .table-data .todo .todo-list li.not-completed {
 	border-left: 10px solid var(--orange);

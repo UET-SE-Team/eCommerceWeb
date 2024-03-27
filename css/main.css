@@ -2,7 +2,9 @@
     --pale: rgb(74, 142, 210);
     --yellow: #ed4f44;
     --pink: rgb(245, 83, 110);
-    --purple: #ed4f44;
+
+    --purple: rgb(211, 185, 255);
+    --purple-bold: rgb(138, 92, 216);
 }
 
 /* button */

@@ -1,4 +1,5 @@
 // download node JS => run: node Ecommerce.js in terminal to run file
+//link to the db: https://ecommerceweb-b9cc4-default-rtdb.asia-southeast1.firebasedatabase.app/
 import { initializeApp } from "firebase/app";
 import { getDatabase, ref, set, get, remove } from "firebase/database";
 

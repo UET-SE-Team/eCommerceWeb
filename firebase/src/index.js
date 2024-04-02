@@ -1,4 +1,5 @@
 // SUB FILE FOR TESTING ONLY @@
+// Text me if u want permission
 import {initializeApp } from 'firebase/app';
 import { getDatabase, ref, set, get, onValue, remove } from 'firebase/database';
 

@@ -1,5 +1,4 @@
 // download node JS => run: node Ecommerce.js in terminal to run file
-//link to the db: https://ecommerceweb-b9cc4-default-rtdb.asia-southeast1.firebasedatabase.app/
 import { initializeApp } from "firebase/app";
 import { getDatabase, ref, set, get, remove } from "firebase/database";
 
@@ -38,6 +37,14 @@ class Product{
         this.description = description;
     }
 }
+class Account{
+    constructor(account_name, account_password, account_id) {
+        this.account_user_id = account_id;
+        this.account_name = account_name;
+        this.account_password = account_password;
+    }
+}
+
 
 /**
     Thêm 1 user, lấy thông tin user, lấy thông tin cụ thể của 1 user, sửa thông tin cho user, theo dõi thông tin của user, xóa user
@@ -67,6 +74,14 @@ async function writeUserInformation(user) {
         user_phonenumber: user.phone_number,
         user_address: user.address
     });
+}
+
+async function writeAccount(account) {
+    const reference = ref(db, 'Accounts/' + account.account_name)
+    await set(reference, {
+        account_password: account.account_password,
+        account_user_id: account.account_user_id
+    })
 }
 
 async function addProductToList(userID, product) {
@@ -110,6 +125,18 @@ async function getUserData(userID) {
     return null;
 }
 
+async function getAccountData(account_name) {
+    const reference = ref(db, 'Accounts/' + account_name)
+    try{
+        const snapshot = await get(reference)
+        if(snapshot.exists()) {
+            return snapshot.val()
+        }
+    }catch(error) {
+        console.log("Error:" + error)
+    }
+    return null
+}
 async function getSpecificUserData(UserID, field) {
     field = 'user_' + field; 
     try{
@@ -127,7 +154,7 @@ async function getSpecificUserData(UserID, field) {
 }
 
 async function getUserProductData(userID) {
-    const reference = ref(db, 'Users/' + userID + '/user_cart/')
+    const reference = ref(db, 'Users/' + userID + '/user_cart')
     try{
         const snapshot = await get(reference);
         if(snapshot.exists()) {
@@ -142,7 +169,7 @@ async function getUserProductData(userID) {
 async function deleteUser(userID) {
     const data = await getUserData(userID)
     if(data == null) {
-        return false;
+        //return false;
     }
     try{
         const UserRef = ref(db, 'Users/' + userID);
@@ -203,9 +230,19 @@ async function getUserTotalProduct(userID) {
 }
 
 // Your test code run here <3
+/*Thêm 1 tài khoản vào 
+let a = new Account('sharkT','123', 4)
+await writeAccount(a)
+*/
 
-/* Thêm 1 người dùng vào trong db (tự sửa giá trị sao cho id-key không trùng lặp, nếu trùng lặp sẽ overwrite thông tin cũ)
-let u = new User(5,'Shark Thuy','Nam','32-3-1996','sharktank@gmail.com','113114115`','Juventus');
+/* Lấy thông tin của 1 account
+let data = await getAccountData('kiendc12')
+console.log(data.account_password)
+console.log(data.account_user_id)
+*/
+
+/* Thêm 1 người dùng vào trong db (tự sửa giá trị sao cho id-key không trùng lặp, nếu trùng lặp sẽ overwrite thông tin cũ) 
+let u = new User(1,'Dinh Chi Kien','Nam','12-11-2004','kiendc@gmail.com','0948196260','Ha Noi');
 await writeUserInformation(u);
 */
 
@@ -235,13 +272,13 @@ if(result2) {
 }
 */
 
-/* Xoa 1 user di
-let result = await deleteUser(5); // tra ve true neu xoa thanh cong va tra ve false neu k xoa duoc hoac khong tim thay
+/* Xoa 1 user di 
+let result = await deleteUser('4'); // tra ve true neu xoa thanh cong va tra ve false neu k xoa duoc hoac khong tim thay
 console.log(result);
 */
 
-/* Them 1 san pham vao gio hang cua user (ProductID la id cua san pham o trong gio hang chu khong phai ID chinh cua san pham)
-let product_tmp = new Product(2, 'BMW', 1600000000000000,'Xe BMW dat vcl mua ve deo ghe di choi chay pho nhun nhay ho guom thoai mai')
+/* Them 1 san pham vao gio hang cua user (ProductID la id cua san pham o trong gio hang chu khong phai ID chinh cua san pham) 
+let product_tmp = new Product(1, 'Mercedes', 10000000000,'Work hard to buy G63, GLC, S-tier, C-Tier, E-tier, Maybach')
 await addProductToList(1, product_tmp)
 */
 
@@ -253,7 +290,7 @@ console.log(result2);
 */
 
 /* Lay tat ca thong tin cua 1 san pham
-const data = await getUserProductData(1);
+const data = await getUserProductData(2);
 console.log(data)
 */
 

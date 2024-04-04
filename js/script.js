@@ -46,3 +46,15 @@ closeBtn.addEventListener("click", function() {
     popup.classList.remove("active");
     overlayer.classList.remove("pop");
 });
+
+// show shopping cart
+const cartIcon = document.querySelector('#cartIcon');
+const body = document.querySelector('body');
+const closeCartBtn = document.querySelector('#closeBtn');
+
+cartIcon.addEventListener('click', function() {
+body.classList.toggle('showCart');
+});
+closeCartBtn.addEventListener('click', function() {
+body.classList.remove('showCart');
+});

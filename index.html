@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Attire</title>
+    <title>Luminé</title>
 
     <!-- font awesome cdn -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -14,7 +14,7 @@
     <!-- custom css css -->
     <link rel="stylesheet" href="css/main.css">
 </head>
-<body>
+<body class="showCart">
     <!-- navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-white py-4 fixed-top">
         <div class="container">
@@ -24,12 +24,9 @@
             </a>
 
             <div class="order-lg-2 nav-btns">
-                <button type="button" class="btn position-relative">
-                    <a href="shopping-cart.html" target="_blank">
-                        <a href="shopping-cart.html" target="_blank">
-                        <i class="fa fa-shopping-cart"></i>
-                        <span class="position-absolute top-0 start-100 translate-middle badge bg-primary text-white">5</span>
-                    </a>
+                <button type="button" class="btn position-relative" id="cartIcon">
+                    <i class="fa fa-shopping-cart"></i>
+                    <span class="position-absolute top-0 start-100 translate-middle badge bg-primary text-white">5</span>
                 </button>
                 <button type="button" class="btn position-relative">
                     <i class="fa fa-heart" id="heart-btn"></i>
@@ -170,6 +167,34 @@
             </div>
         </div>
     </div> 
+
+    <!-- shopping cart -->
+    <div class="cartTab">
+        <h1><b>Shopping Cart</b></h1>
+        <div class="listCart">
+            <div class="item">
+                <div class="image">
+                    <img src="images/c_formal_gray_shirt.png">
+                </div>
+                <div class="name">
+                    NAME
+                </div>
+                <div class="price">
+                    $200
+                </div>
+                <div class="quantity">
+                    <span class="minus"><</span>
+                    <span style="color: black;">1</span>
+                    <span class="plus">></span>
+                </div>
+            </div>
+        </div>
+        <div class="btnCart">
+            <button id="closeBtn"><< CONTINUE SHOPPING</button>
+            <button id="checkoutBtn">CHECK OUT</button>
+        </div>
+    </div>
+    <!-- end of shopping cart -->
     
     <!-- header -->
     <header id="header" class="vh-100 carousel slide" data-bs-ride="carousel" data-bs- style="padding-top: 104px">

@@ -540,3 +540,92 @@ footer a:hover{
 /* .img-3d{
     width: 50%;
 } */
+
+/* shopping cart */
+.cartTab{
+    background-color: white;
+    width: 400px;
+    position: fixed;
+    inset: 120px -400px 30px auto;
+    display: grid;
+    grid-template-rows: 70px 1fr 70px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    transition: right 0.5s ease-in-out;
+    z-index: 2;
+}
+.cartTab h1{
+    color: black;
+    font-size: 35px;
+    text-align: center;
+    padding-top: 15px;
+}
+.cartTab .listCart .item img{
+    width: 100%;
+}
+.cartTab .listCart .item{
+    display: grid;
+    grid-template-columns: 70px 150px 50px 1fr;
+    gap: 10px;
+    align-items: center;
+    text-align: center;
+    color: black;
+}
+.listCart{
+    overflow: auto;
+}
+.listCart::-webkit-scrollbar{
+    width: 0;
+}
+.listCart .quantity span{
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+}
+.listCart .quantity span:nth-child(2){
+    background-color: transparent;
+}
+.minus, .plus{
+    background-color: var(--purple-bold);
+    color: white;
+    cursor: pointer;
+}
+.minus:hover, .plus:hover{
+    background-color: var(--purple);
+    color: black;
+    transform: scale(1.2);
+}
+.cartTab .btnCart{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+.cartTab .btnCart button{
+    border-color: transparent;
+    cursor: pointer;
+    font-size: 15px;
+}
+body.showCart .cartTab{
+    inset: 120px 0 30px auto;
+    transition: 0.5s ease-in-out;
+    z-index: 2;
+}
+#closeBtn{
+    background-color: var(--purple);
+    color: rgb(101, 90, 90);
+    border-bottom-left-radius: 20px;
+}
+#checkoutBtn{
+    background-color: var(--purple-bold);
+    color: white;
+}
+#closeBtn:hover{
+    background-color: var(--purple-bold);
+    color: white;
+}
+#checkoutBtn:hover{
+    background-color: var(--purple-bold);
+    color: white;
+    border-radius: 20px;
+    transform: scale(1.15);
+}

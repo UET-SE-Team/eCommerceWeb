@@ -1,0 +1,7 @@
+#private files
+node_modules
+package-lock.json
+connectDB.js
+
+#dev file
+.env

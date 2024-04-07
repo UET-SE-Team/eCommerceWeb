@@ -1,4 +1,4 @@
-// download node JS => run: node Ecommerce.js in terminal to run file
+// download node JS => run: node realtime.js in terminal to run file
 import { initializeApp } from "firebase/app";
 import { getDatabase, ref, set, get, remove } from "firebase/database";
 

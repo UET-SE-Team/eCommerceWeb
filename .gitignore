@@ -1,7 +1,11 @@
-#private files
+#private folders
+private
+
+#lock files
 node_modules
 package-lock.json
-connectDB.js
 
-#dev file
+#dev files
 .env
+
+#git remote update --prune

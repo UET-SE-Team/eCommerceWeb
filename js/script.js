@@ -37,10 +37,10 @@ const closeBtn = document.querySelector(".popup .close-btn");
 const overlayer = document.querySelector(".overlayer");
 
 userBtn.addEventListener("click", function() {
-    popup.classList.add("active");
+    popup.classList.toggle("active");
 
     // blur the background when logging in/signing up
-    overlayer.classList.add("pop");
+    overlayer.classList.toggle("pop");
 });
 closeBtn.addEventListener("click", function() {
     popup.classList.remove("active");
@@ -53,8 +53,9 @@ const body = document.querySelector('body');
 const closeCartBtn = document.querySelector('#closeBtn');
 
 cartIcon.addEventListener('click', function() {
-body.classList.toggle('showCart');
+  body.classList.toggle('showCart');
 });
+  
 closeCartBtn.addEventListener('click', function() {
-body.classList.remove('showCart');
+  body.classList.toggle('showCart');
 });

@@ -775,3 +775,95 @@ body.showCart .cartTab {
 .collection-list {
     width: 100%;
 }
+
+
+/* Chat action */
+.floating-container {
+    position: fixed;
+    width: 100px;
+    height: 100px;
+    bottom: 0;
+    right: 0;
+    margin: 35px 25px;
+}
+.floating-container:hover {
+    height: 300px;
+}
+.floating-container:hover .floating-button {
+    box-shadow: 0 0 20px 10px var(--purple);
+    transform: translateY(3px);
+    transition: all 0.3s;
+}
+.floating-button {
+    position: absolute;
+    width: 65px;
+    height: 65px;
+    background: var(--purple-bold);
+    bottom: 0;
+    border-radius: 50%;
+    left: 0;
+    right: 0;
+    color: #fff;
+    line-height: 60px;
+    text-align: center;
+    font-size: 40px;
+    z-index: 100;
+    cursor: pointer;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+}
+.float-element {
+    text-decoration: none;
+    position: relative;
+    display: block;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    margin: 15px 0;
+    color: #fff;
+    display: grid;
+    place-items: center;
+    z-index: 0;
+    opacity: 0;
+    cursor: pointer;
+}
+.float-element:hover {
+    color: var(--purple-bold);
+    box-shadow: 0 0 10px 2px var(--purple);
+}
+.float-element:nth-child(1) {
+    background: var(--purple);
+    /* box-shadow: 0 10px 10px -3px var(--purple); */
+}
+.float-element:nth-child(2) {
+    background: var(--purple);
+    /* box-shadow: 0 10px 10px -3px var(--purple); */
+}
+.float-element:nth-child(3) {
+    background: var(--purple);
+    /* box-shadow: 0 10px 10px -3px var(--purple); */
+}
+@-webkit-keyframes come-in {
+    0% {
+        opacity: 0;
+    }
+    30% {
+        transform: translateX(-50px) scale(0.4);
+    }
+    70% {
+        transform: translateX(0px) scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+.floating-container:hover .element-container .float-element:nth-child(1) {
+    animation: come-in 0.4s forwards 0.2s;
+}
+.floating-container:hover .element-container .float-element:nth-child(2) {
+    animation: come-in 0.4s forwards 0.4s;
+}
+.floating-container:hover .element-container .float-element:nth-child(3) {
+    animation: come-in 0.4s forwards 0.6s;
+}

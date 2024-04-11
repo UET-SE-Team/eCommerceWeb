@@ -1,0 +1,11 @@
+#private folders
+private
+
+#lock files
+node_modules
+package-lock.json
+
+#dev files
+.env
+
+#git remote update --prune

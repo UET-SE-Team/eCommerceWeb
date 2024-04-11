@@ -8,4 +8,7 @@ package-lock.json
 #dev files
 .env
 
+#temp files
+.DS_Store
+
 #git remote update --prune

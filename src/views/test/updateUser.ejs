@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<title>Editing Page</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+    .centered-form {
+        display: flex;
+        justify-content: center;
+        padding-top: 100px;
+    }
+
+    .input-group {
+        margin-bottom: 10px;
+    }
+
+    .input-group label {
+        display: inline-block;
+        width: 100px;
+        text-align: right;
+        margin-right: 10px;
+    }
+
+    .input-group input {
+        width: 200px;
+    }
+</style>
+
+<body>
+    <div class="centered-form">
+        <form action="/update-user" method="POST">
+            <div class="hidden-group">
+                <input type="text" hidden id="userID" name="userID" value="<%= userData.userID %>">
+            </div>
+            <div class="input-group">
+                <label for="firstName">First name:</label>
+                <input type="text" id="firstName" name="firstName" value="<%= userData.firstName %>">
+            </div>
+            <div class="input-group">
+                <label for="lastName">Last name:</label>
+                <input type="text" id="lastName" name="lastName" value="<%= userData.lastName %>">
+            </div>
+            <div class="input-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" value="<%= userData.email %>">
+            </div>
+            <div class="input-group">
+                <label for="phoneNumber">Phone:</label>
+                <input type="text" id="phoneNumber" name="phoneNumber" value="<%= userData.phoneNumber %>">
+            </div>
+            <div class="input-group">
+                <label for="address">Address:</label>
+                <input type="text" id="address" name="address" value="<%= userData.address %>">
+            </div>
+            <div class="input-group">
+                <label for="avatarLink">Link avatar:</label>
+                <input type="text" id="avatarLink" name="avatarLink" value="<%= userData.avatarLink %>">
+            </div>
+            <div class="input-group">
+                <input type="submit" value="Submit">
+            </div>
+        </form>
+    </div>
+
+    </div>
+</body>
+
+</html>

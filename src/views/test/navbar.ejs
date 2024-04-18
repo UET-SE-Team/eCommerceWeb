@@ -1,0 +1,182 @@
+<!-- navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white py-4 fixed-top">
+    <div class="container">
+        <a class="navbar-brand d-flex justify-content-between align-items-center order-lg-0">
+            <img src="images/shopping-bag-icon.png" alt="site icon">
+            <span class="text-uppercase fw-lighter ms-2">Luminé</span>
+        </a>
+
+        <div class="order-lg-2 nav-btns">
+            <button type="button" class="btn position-relative" id="cartIcon">
+                <i class="fa fa-shopping-cart"></i>
+                <span class="position-absolute top-0 start-100 translate-middle badge bg-primary text-white">5</span>
+            </button>
+            <button type="button" class="btn position-relative">
+                <i class="fa fa-heart" id="heart-btn"></i>
+                <span class="position-absolute top-0 start-100 translate-middle badge bg-primary text-white">2</span>
+            </button>
+            <button type="button" class="btn position-relative">
+                <i class="fa fa-search"></i>
+                <span class="position-absolute top-0 start-100 translate-middle badge bg-primary"></span>
+            </button>
+            
+            <!-- USER'S LOGIN BTN -->
+            <button type="button" class="btn position-relative" id="userBtn">
+                <i class="fa fa-user"></i>
+                <span class="position-absolute top-0 start-100 translate-middle badge bg-primary"></span>
+            </button>
+        </div>
+
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse order-lg-1" id="navMenu">
+            <ul class="navbar-nav mx-auto text-center align-items-center">
+                <li class="nav-item px-2 py-2">
+                    <a class="nav-link text-uppercase text-dark" href="/" id="home">home</a>
+                </li>
+                <li class="nav-item px-2 py-2">
+                    <a class="nav-link text-uppercase text-dark" href="#collection">collection</a>
+                </li>
+                <li class="nav-item px-2 py-2">
+                    <div class="dropdown">
+                        <button class="nav-link text-uppercase text-dark dropbtn" href="#products" id="productsBtn">Products 
+                            <i class="fas fa-angle-down"></i>
+                        </button>
+                        <div class="dropdown-content">
+                            <a href="/product-details" target="_blank">Hoodie</a>
+                            <a href="/product-details" target="_blank">Skirt</a>
+                            <a href="/product-details" target="_blank">Trousers</a>
+                            <a href="/product-details" target="_blank">Shorts</a>
+                            <a href="/product-details" target="_blank">T-shirt</a>
+                            <a href="/product-details" target="_blank">Shirt</a>
+                            <a href="/product-details" target="_blank">Jacket</a>
+                            <a href="/product-details" target="_blank">Watch</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item px-2 py-2">
+                    <a class="nav-link text-uppercase text-dark" href="#special">specials</a>
+                </li>
+                <li class="nav-item px-2 py-2">
+                    <a class="nav-link text-uppercase text-dark" href="#blogs">blogs</a>
+                </li>
+                <li class="nav-item px-2 py-2">
+                    <a class="nav-link text-uppercase text-dark" href="#about">about us</a>
+                </li>
+                <li class="nav-item px-2 py-2">
+                    <a class="nav-link text-uppercase text-dark" href="#popular">popular</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- end of navbar --> 
+
+<!-- overlayer -->
+<div class="overlayer"></div>
+<!-- end of overlayer -->
+
+<div class="popup">
+    <!-- CLOSE BTN -->
+    <div class="close-btn">
+        &times;
+    </div>
+
+    <!-- LOGIN/SIGN-UP FORM -->
+    <div class="user-box" id="user-box">
+        <div class="form-container sign-up">
+            <form>
+                <h1>Create Account</h1>
+                <div class="social-icons">
+                    <a href="#" class="icon">
+                        <i class="fa-brands fa-google-plus-g"></i>
+                    </a>
+                    <a href="#" class="icon">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="icon">
+                        <i class="fa-brands fa-twitter"></i>
+                    </a>
+                    <a href="#" class="icon">
+                        <i class="fa-brands fa-linkedin-in"></i>
+                    </a>
+                </div>
+                <span>Or use your email to register!</span>
+                <input type="text" placeholder="Name">
+                <input type="email" placeholder="Email">
+                <input type="password" placeholder="Password">
+                <button>Sign Up</button>
+            </form>
+        </div>
+        <div class="form-container sign-in">
+            <form>
+                <h1>Sign In</h1>
+                <div class="social-icons">
+                    <a href="#" class="icon">
+                        <i class="fa-brands fa-google-plus-g"></i>
+                    </a>
+                    <a href="#" class="icon">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="icon">
+                        <i class="fa-brands fa-twitter"></i>
+                    </a>
+                    <a href="#" class="icon">
+                        <i class="fa-brands fa-linkedin-in"></i>
+                    </a>
+                </div>
+                <span>Or use your email password</span>
+                <input type="email" placeholder="Email">
+                <input type="password" placeholder="Password">
+                <a href="#" id="forget-pass"><u>Forget Your Password?</u></a>
+                <button>Sign In</button>
+            </form>
+        </div>
+        <div class="toggle-container">
+            <div class="toggle">
+                <div class="toggle-panel toggle-left">
+                    <h1>Welcome Back!</h1>
+                    <p>Enter your personal details to use all of site features</p>
+                    <button class="hidden" id="login">Sign In</button>
+                </div>
+                <div class="toggle-panel toggle-right">
+                    <h1>Hello, Friend!</h1>
+                    <p>Register with your personal details to use all of site features</p>
+                    <button class="hidden" id="register">Sign Up</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> 
+
+<!-- shopping cart -->
+<div class="cartTab">
+    <h1><b>Shopping Cart</b></h1>
+    <div class="listCart">
+        <div class="item">
+            <div class="image">
+                <img src="images/c_formal_gray_shirt.png">
+            </div>
+            <div class="name">
+                NAME
+            </div>
+            <div class="price">
+                $200
+            </div>
+            <div class="quantity">
+                <span class="minus"><</span>
+                <span style="color: black;">1</span>
+                <span class="plus">></span>
+            </div>
+        </div>
+    </div>
+    <div class="btnCart">
+        <button id="closeBtn"><< CONTINUE SHOPPING</button>
+        <button id="checkoutBtn">
+            <a class="checkout-function" href="/checkout" target="_blank">CHECK OUT</a>
+        </button>
+    </div>
+</div>
+<!-- end of shopping cart -->

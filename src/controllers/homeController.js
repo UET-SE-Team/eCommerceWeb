@@ -62,6 +62,14 @@ const updateUser = async (req, res) => {
     }
 }
 
+const getCheckoutPage = async (req, res) => {
+    res.render('checkout.ejs');
+}
+
+const getProductDetailsPage = async (req, res) => {
+    res.render('product-details.ejs');
+}
+
 module.exports = {
     getHomePage,
     getUsers,
@@ -69,4 +77,6 @@ module.exports = {
     deleteUser,
     updateUser,
     getEditingPage,
+    getCheckoutPage,
+    getProductDetailsPage,
 };

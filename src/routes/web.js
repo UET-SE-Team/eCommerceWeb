@@ -9,6 +9,8 @@ const initWebRoute = (app) => {
     router.post('/delete-user', homeController.deleteUser);
     router.post('/update-user', homeController.updateUser);
     router.get('/edit-user/:userID', homeController.getEditingPage);
+    router.get('/checkout', homeController.getCheckoutPage);
+    router.get('/product-details', homeController.getProductDetailsPage);
     return app.use('/', router);
 }
 

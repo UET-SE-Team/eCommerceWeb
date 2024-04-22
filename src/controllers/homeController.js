@@ -1,3 +1,4 @@
+const { name } = require('ejs');
 const connection = require('../configs/connectDB');
 const db = connection.admin.firestore();
 
@@ -16,14 +17,10 @@ const createUser = async (req, res) => {
     try {
         let user = req.body;
         await db.collection('users').add({
-            firstName: user.firstName,
-            lastName: user.lastName,
-            email: user.email,
-            phoneNumber: user.phoneNumber,
-            address: user.address,
-            avatarLink: user.avatarLink
+            uid: user.uid,
+            email: user.email
         });
-        console.log(`>>> User has been added successfully.`);
+        console.log(`>>> User has been added successfully: `);
         res.redirect('/');
     } catch (error) {
         console.error('>>> Error submitting user:', error);

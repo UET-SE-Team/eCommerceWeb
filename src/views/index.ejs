@@ -112,7 +112,7 @@
         <!-- LOGIN/SIGN-UP FORM -->
         <div class="user-box" id="user-box">
             <div class="form-container sign-up">
-                <form>
+                <form id="signUpForm">
                     <h1>Create Account</h1>
                     <div class="social-icons">
                         <a href="#" class="icon">
@@ -129,10 +129,10 @@
                         </a>
                     </div>
                     <span>Or use your email to register!</span>
-                    <input type="text" placeholder="Name">
-                    <input type="email" placeholder="Email">
-                    <input type="password" placeholder="Password">
-                    <button>Sign Up</button>
+                    <input type="text" placeholder="Name" name="name">
+                    <input type="email" placeholder="Email" name="email">
+                    <input type="password" placeholder="Password" name="password">
+                    <button type="submit">Sign Up</button>
                 </form>
             </div>
             <div class="form-container sign-in">
@@ -151,12 +151,12 @@
                         <i class="fa-brands fa-linkedin-in"></i>
                     </a>
                 </div>
-                <form>
+                <form id="loginForm">
                     <span>Or use your email password</span>
-                    <input type="email" placeholder="Email">
-                    <input type="password" placeholder="Password">
+                    <input type="email" placeholder="Email" name="email" required>
+                    <input type="password" placeholder="Password" name="password" required>
                     <a href="#" id="forget-pass"><u>Forget Your Password?</u></a>
-                    <button>Sign In</button>
+                    <button type="submit">Sign In</button>
                 </form>
             </div>
             <div class="toggle-container">
@@ -797,7 +797,7 @@
         crossorigin="anonymous"></script>
     <!-- custom js -->
     <script src="js/script.js"></script>
-    <script src="js/login.js" defer type="module"></script>
+    <script src="js/authentication.js" defer type="module"></script>
 </body>
 
 </html>

@@ -22,8 +22,15 @@
             
             <!-- USER'S LOGIN BTN -->
             <button type="button" class="btn position-relative" id="userBtn">
-                <i class="fa fa-user"></i>
-                <span class="position-absolute top-0 start-100 translate-middle badge bg-primary"></span>
+                <div class="dropdown">
+                    <i class="fa fa-user"></i>
+                    <i class="fas fa-angle-down"></i>
+                    <div class="dropdown-content">
+                        <a href="/settings" target="_blank">Settings</a>
+                        <a>Log out</a>
+                    </div>
+                </div>
+                
             </button>
         </div>
 

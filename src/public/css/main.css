@@ -375,7 +375,7 @@ form{
     height: 100%;
     left: 0;
     top: 0;
-    background-color: black;
+    background-color: white;
     opacity: 0;
     z-index: -5;
 }
@@ -710,4 +710,53 @@ body.showCart .cartTab{
 }
 .list-inline-item a:hover{
     color: var(--pink);
+}
+
+/* settings */
+input .avatar{
+    display: none;
+}
+.settings{
+    margin-top: 130px;
+}
+#input-file{
+    display: none;
+}
+.custom-btn{
+    display: inline-block;
+    padding: 10px 20px;
+    border: 2px solid black;
+    border-radius: 20px;
+    cursor: pointer;
+    background-color: transparent;
+    color: #000;
+}
+.custom-btn:hover{
+    cursor: pointer;
+    background-color: var(--purple);
+    border-color: white;
+    background-color: var(--purple);
+    color: #000;
+}
+.form-label{
+    font-weight: bold;
+}
+#username::before, #your-name::before, #email::before, #phone-number::before, #dob::before, #gender::before{
+    position: absolute;
+    content: "";
+    width: 4px;
+    height: 30px;
+    background-color: var(--yellow);
+    left: 15px;
+}
+.list-group-item:hover{
+    text-decoration: none;
+    background-color: var(--pink);
+    color: white;
+    border:none;
+}
+.list-group .active{
+    background-color: var(--pink);
+    color: white;
+    border: none;
 }

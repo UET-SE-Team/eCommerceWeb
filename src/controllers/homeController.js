@@ -70,6 +70,10 @@ const getProductDetailsPage = async (req, res) => {
     res.render('product-details.ejs');
 }
 
+const getSettings = async (req, res) => {
+    res.render('settings.ejs');
+}
+
 module.exports = {
     getHomePage,
     getUsers,
@@ -79,4 +83,5 @@ module.exports = {
     getEditingPage,
     getCheckoutPage,
     getProductDetailsPage,
+    getSettings,
 };

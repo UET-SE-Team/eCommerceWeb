@@ -11,6 +11,7 @@ const initWebRoute = (app) => {
     router.get('/edit-user/:userID', homeController.getEditingPage);
     router.get('/checkout', homeController.getCheckoutPage);
     router.get('/product-details', homeController.getProductDetailsPage);
+    router.get('/settings', homeController.getSettings);
     return app.use('/', router);
 }
 

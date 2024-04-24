@@ -11,7 +11,7 @@
                 <i class="fa fa-shopping-cart"></i>
                 <span class="position-absolute top-0 start-100 translate-middle badge bg-primary text-white">5</span>
             </button>
-            <button type="button" class="btn position-relative">
+            <button type="button" class="btn position-relative" id="heartBtn">
                 <i class="fa fa-heart" id="heart-btn"></i>
                 <span class="position-absolute top-0 start-100 translate-middle badge bg-primary text-white">2</span>
             </button>
@@ -19,7 +19,7 @@
                 <i class="fa fa-search"></i>
                 <span class="position-absolute top-0 start-100 translate-middle badge bg-primary"></span>
             </button>
-            
+
             <!-- USER'S LOGIN BTN -->
             <button type="button" class="btn position-relative" id="userBtn">
                 <i class="fa fa-user"></i>
@@ -41,7 +41,8 @@
                 </li>
                 <li class="nav-item px-2 py-2">
                     <div class="dropdown">
-                        <button class="nav-link text-uppercase text-dark dropbtn" href="#products" id="productsBtn">Products 
+                        <button class="nav-link text-uppercase text-dark dropbtn" href="#products"
+                            id="productsBtn">Products
                             <i class="fas fa-angle-down"></i>
                         </button>
                         <div class="dropdown-content">
@@ -72,7 +73,7 @@
         </div>
     </div>
 </nav>
-<!-- end of navbar --> 
+<!-- end of navbar -->
 
 <!-- overlayer -->
 <div class="overlayer"></div>
@@ -91,12 +92,12 @@
                 <h1>Create Account</h1>
                 <br>
                 <div class="name-signup">
-                    <input type="text" placeholder="First name" name="name">
-                    <input type="text" placeholder="Last name" name="name">
+                    <input type="text" placeholder="First name" name="name" required>
+                    <input type="text" placeholder="Last name" name="name" required>
                 </div>
-                <input type="tel" placeholder="Phone number" name="phone" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}">
-                <input type="email" placeholder="Email" name="email">
-                <input type="password" placeholder="Password" name="password">
+                <input type="tel" placeholder="Phone number" name="phone" pattern="[0-9]{10}" required>
+                <input type="email" placeholder="Email" name="email" required>
+                <input type="password" placeholder="Password" name="password" minlength="6" required>
                 <button class="submit-button" type="submit">Sign Up</button>
             </form>
         </div>
@@ -141,7 +142,7 @@
             </div>
         </div>
     </div>
-</div> 
+</div>
 
 <!-- shopping cart -->
 <div class="cartTab">
@@ -158,17 +159,19 @@
                 $200
             </div>
             <div class="quantity">
-                <span class="minus"><</span>
-                <span style="color: black;">1</span>
-                <span class="plus">></span>
+                <span class="minus">
+                    << /span>
+                        <span style="color: black;">1</span>
+                        <span class="plus">></span>
             </div>
         </div>
     </div>
     <div class="btnCart">
-        <button id="closeBtn"><< CONTINUE SHOPPING</button>
-        <button id="checkoutBtn">
-            <a class="checkout-function" href="/checkout" target="_blank">CHECK OUT</a>
-        </button>
+        <button id="closeBtn">
+            << CONTINUE SHOPPING</button>
+                <button id="checkoutBtn">
+                    <a class="checkout-function" href="/checkout" target="_blank">CHECK OUT</a>
+                </button>
     </div>
 </div>
 <!-- end of shopping cart -->

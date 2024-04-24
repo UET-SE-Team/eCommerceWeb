@@ -29,7 +29,8 @@ googleLogin.addEventListener('click', function () {
         .then((result) => {
             const credential = GoogleAuthProvider.credentialFromResult(result);
             const user = result.user;
-            //window.location.href = ""
+            const tokenID = user.getIdToken();
+            localStorage.setItem('tokenID', tokenID);
         }).catch((error) => {
             const errorCode = error.code;
             const errorMessage = error.message;
@@ -48,20 +49,21 @@ loginForm.addEventListener('submit', (event) => {
     signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
             const user = userCredential.user;
-            console.log('Logged in successfully:', user);
-            alert("Chúc mừng, bạn có thể tắt máy đi ngủ");
+            const tokenID = user.getIdToken();
+            localStorage.setItem('tokenID', tokenID);
+            //console.log('Logged in successfully:', tokenID);
+            //console.log('Logged in successfully:', JSON.stringify(user));
         })
         .catch((error) => {
             const errorCode = error.code;
             const errorMessage = error.message;
             console.error('login error:', errorCode, errorMessage);
-            alert("Sai rồi cu?")
+            alert("Email or password is incorrect. Please try again !")
         });
 });
 
 //create account
 function createUserReq(userData) {
-    // Tạo requestOptions từ userData
     var requestOptions = {
         method: 'POST',
         headers: {
@@ -98,13 +100,14 @@ signUpForm.addEventListener('submit', (event) => {
         .then((userCredential) => {
             const user = userCredential.user;
             createUser(user);
-            //console.log('successfully:', JSON.stringify(user));
-            alert("Chúc mừng, bạn có thể đăng nhập");
+            alert("Sign up success !");
+            signUpForm.reset();
+            document.getElementById("login").click();
         })
         .catch((error) => {
             const errorCode = error.code;
             const errorMessage = error.message;
             console.error('sign up error:', errorCode, errorMessage);
-            alert("Có người dùng rồi cu?")
+            alert("Email has been used. Please try again !")
         });
 });

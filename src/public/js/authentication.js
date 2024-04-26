@@ -4,8 +4,11 @@ import {
     signInWithPopup,
     signInWithEmailAndPassword,
     createUserWithEmailAndPassword,
+    onAuthStateChanged,
+    signOut,
 } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js";
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
+//import { auth } from "https://www.gstatic.com/firebasejs/10.11.0/firebase.js";
 
 const firebaseConfig = {
     apiKey: "AIzaSyBo0gDdJUG5SeZcEbwMC7xo9ZeetHrwcTM",
@@ -21,6 +24,20 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 auth.languageCode = "en";
 
+const token = localStorage.getItem('tokenID');
+onAuthStateChanged(auth, (user) => {
+    if (user) {
+        document.getElementById('userBtn').style.display = "none";
+        document.getElementById('avatarBtn').style.display = "inline-block";
+    } else {
+        document.getElementById('avatarBtn').style.display = "none";
+        document.getElementById('userBtn').style.display = "inline-block";
+    }
+    document.getElementById('cartIcon').style.display = "inline-block";
+    document.getElementById('heartBtn').style.display = "inline-block";
+    document.getElementById('searchBtn').style.display = "inline-block";
+});
+
 //google login
 const provider = new GoogleAuthProvider();
 const googleLogin = document.getElementById("google-login");
@@ -31,6 +48,8 @@ googleLogin.addEventListener('click', function () {
             const user = result.user;
             const tokenID = user.getIdToken();
             localStorage.setItem('tokenID', tokenID);
+            const closeBtn = document.querySelector(".popup .close-btn");
+            closeBtn.click();
         }).catch((error) => {
             const errorCode = error.code;
             const errorMessage = error.message;
@@ -40,26 +59,26 @@ googleLogin.addEventListener('click', function () {
 
 //email password login
 const loginForm = document.getElementById("loginForm");
-loginForm.addEventListener('submit', (event) => {
+loginForm.addEventListener('submit', async (event) => {
     event.preventDefault();
 
     const email = loginForm['email'].value;
     const password = loginForm['password'].value;
 
-    signInWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-            const user = userCredential.user;
-            const tokenID = user.getIdToken();
-            localStorage.setItem('tokenID', tokenID);
-            //console.log('Logged in successfully:', tokenID);
-            //console.log('Logged in successfully:', JSON.stringify(user));
-        })
-        .catch((error) => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            console.error('login error:', errorCode, errorMessage);
-            alert("Email or password is incorrect. Please try again !")
-        });
+    try {
+        const userCredential = await signInWithEmailAndPassword(auth, email, password);
+        const user = userCredential.user;
+        const tokenID = await user.getIdToken();
+        localStorage.setItem('tokenID', tokenID);
+        console.log('Logged in successfully:', tokenID);
+        const closeBtn = document.querySelector(".popup .close-btn");
+        closeBtn.click();
+    } catch (error) {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.error('login error:', errorCode, errorMessage);
+        alert("Email or password is incorrect. Please try again !");
+    }
 });
 
 //create account
@@ -88,18 +107,35 @@ function createUser(userData) {
         });
 }
 
+const logOutBtn = document.getElementById("logOutBtn");
+logOutBtn.addEventListener('click', (event) => {
+    event.preventDefault();
+    auth.signOut().then(() => {
+        console.log('user signed out');
+        localStorage.removeItem('tokenID');
+    });
+});
+
 const signUpForm = document.getElementById("signUpForm");
 signUpForm.addEventListener('submit', (event) => {
     event.preventDefault();
 
-    const name = signUpForm['name'].value;
+    const firstName = signUpForm['firstName'].value;
+    const lastName = signUpForm['lastName'].value;
+    const phoneNumber = signUpForm['phoneNumber'].value;
     const email = signUpForm['email'].value;
     const password = signUpForm['password'].value;
 
     createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
             const user = userCredential.user;
-            createUser(user);
+            createUser({
+                uid: user.uid,
+                firstName: firstName,
+                lastName: lastName,
+                email: email,
+                phoneNumber: phoneNumber,
+            });
             alert("Sign up success !");
             signUpForm.reset();
             document.getElementById("login").click();

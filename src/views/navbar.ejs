@@ -7,30 +7,38 @@
         </a>
 
         <div class="order-lg-2 nav-btns">
-            <button type="button" class="btn position-relative" id="cartIcon">
+            <button type="button" class="btn position-relative" id="cartIcon" style="display: none;">
                 <i class="fa fa-shopping-cart"></i>
                 <span class="position-absolute top-0 start-100 translate-middle badge bg-primary text-white">5</span>
             </button>
-            <button type="button" class="btn position-relative" id="heartBtn">
+            <button type="button" class="btn position-relative" id="heartBtn" style="display: none;">
                 <i class="fa fa-heart" id="heart-btn"></i>
                 <span class="position-absolute top-0 start-100 translate-middle badge bg-primary text-white">2</span>
             </button>
-            <button type="button" class="btn position-relative">
+            <button type="button" class="btn position-relative" id="searchBtn" style="display: none;">
                 <i class="fa fa-search"></i>
                 <span class="position-absolute top-0 start-100 translate-middle badge bg-primary"></span>
             </button>
 
             <!-- USER'S LOGIN BTN -->
-            <button type="button" class="btn position-relative" id="userBtn">
+            <button type="button" class="btn position-relative" id="userBtn" style="display: none;">
+                <i class="fa fa-user"></i>
+            </button>
+
+            <!-- USER'S AVATAR BTN -->
+            <button type="button" class="btn position-relative" id="avatarBtn" style="display: none">
                 <div class="dropdown">
-                    <i class="fa fa-user"></i>
+                    <!--i class="fa fa-user"></i-->
+                    <a href="/settings" target="_blank">
+                        <img src="/images/avatar/default.jpg" alt="Avatar" class="avatar">
+                    </a>
                     <i class="fas fa-angle-down"></i>
                     <div class="dropdown-content">
                         <a href="/settings" target="_blank">Settings</a>
-                        <a>Log out</a>
+                        <a id="logOutBtn">Log out</a>
                     </div>
                 </div>
-                
+
             </button>
         </div>
 
@@ -99,10 +107,10 @@
                 <h1>Create Account</h1>
                 <br>
                 <div class="name-signup">
-                    <input type="text" placeholder="First name" name="name" required>
-                    <input type="text" placeholder="Last name" name="name" required>
+                    <input type="text" placeholder="First name" name="firstName" required>
+                    <input type="text" placeholder="Last name" name="lastName" required>
                 </div>
-                <input type="tel" placeholder="Phone number" name="phone" pattern="[0-9]{10}" required>
+                <input type="tel" placeholder="Phone number" name="phoneNumber" pattern="[0-9]{10}" required>
                 <input type="email" placeholder="Email" name="email" required>
                 <input type="password" placeholder="Password" name="password" minlength="6" required>
                 <button class="submit-button" type="submit">Sign Up</button>

@@ -16,11 +16,13 @@ const getUsers = async (req, res) => {
 const createUser = async (req, res) => {
     try {
         let user = req.body;
-        await db.collection('users').add({
-            uid: user.uid,
-            email: user.email
+        await db.collection('users').doc(user.uid).set({
+            email: user.email,
+            firstName: user.firstName,
+            lastName: user.lastName,
+            phoneNumber: user.phoneNumber,
         });
-        console.log(`>>> User has been added successfully: `);
+        console.log(`>>> User has been added successfully `);
         res.redirect('/');
     } catch (error) {
         console.error('>>> Error submitting user:', error);

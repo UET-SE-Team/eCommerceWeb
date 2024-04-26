@@ -1,4 +1,3 @@
-const { name } = require('ejs');
 const connection = require('../configs/connectDB');
 const db = connection.admin.firestore();
 

@@ -48,13 +48,10 @@ closeBtn.addEventListener("click", function () {
 });
 
 // show shopping cart
-const cartIcon = document.querySelector('#cartIcon');
 const body = document.querySelector('body');
 const closeCartBtn = document.querySelector('#closeBtn');
 
-cartIcon.addEventListener('click', function () {
-  body.classList.toggle('showCart');
-});
+
 
 closeCartBtn.addEventListener('click', function () {
   body.classList.toggle('showCart');

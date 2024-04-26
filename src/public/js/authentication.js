@@ -29,9 +29,18 @@ onAuthStateChanged(auth, (user) => {
     if (user) {
         document.getElementById('userBtn').style.display = "none";
         document.getElementById('avatarBtn').style.display = "inline-block";
+        cartIcon.addEventListener('click', function () {
+            body.classList.toggle('showCart');
+        });
     } else {
         document.getElementById('avatarBtn').style.display = "none";
         document.getElementById('userBtn').style.display = "inline-block";
+        document.getElementById('cartIcon').addEventListener('click', function () {
+            document.getElementById('userBtn').click();
+        });
+        document.getElementById('heartBtn').addEventListener('click', function () {
+            document.getElementById('userBtn').click();
+        });
     }
     document.getElementById('cartIcon').style.display = "inline-block";
     document.getElementById('heartBtn').style.display = "inline-block";
@@ -113,6 +122,7 @@ logOutBtn.addEventListener('click', (event) => {
     auth.signOut().then(() => {
         console.log('user signed out');
         localStorage.removeItem('tokenID');
+        window.location.href = "/";
     });
 });
 

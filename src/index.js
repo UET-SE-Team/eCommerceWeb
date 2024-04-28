@@ -13,6 +13,10 @@ app.use(express.json());
 configViewEngine(app);
 initWebRoute(app);
 
+app.use((req, res) => {
+    res.render('error.ejs');
+});
+
 app.listen(port, () => {
     console.log(`Example app listening on port http://localhost:${port}`)
 });

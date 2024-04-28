@@ -22,6 +22,12 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 auth.languageCode = "en";
 
+document.getElementById('adminIcon').addEventListener('click', async () => {
+    const adminURL = `/admin`;
+    window.location.href = adminURL;
+});
+
+
 async function getUserInfo(uid) {
     try {
         const response = await fetch('/user-info', {
@@ -39,8 +45,13 @@ async function getUserInfo(uid) {
     }
 }
 
-auth.onAuthStateChanged(async () => {
+onAuthStateChanged(auth, async (user) => {
+    let isAdmin = false;
     if (auth.currentUser) {
+        const idToken = await auth.currentUser.getIdTokenResult(true);
+        isAdmin = idToken.claims.admin === true;
+        console.log('User is admin:', isAdmin);
+        //console.log(JSON.stringify(auth.currentUser));
         const userInfo = await getUserInfo(auth.currentUser.uid);
         document.getElementById('userBtn').style.display = "none";
         document.getElementById('avatarBtn').style.display = "inline-block";
@@ -50,6 +61,11 @@ auth.onAuthStateChanged(async () => {
     } else {
         document.getElementById('avatarBtn').style.display = "none";
         document.getElementById('userBtn').style.display = "inline-block";
+    }
+    if (isAdmin) {
+        document.getElementById('adminIcon').style.display = "inline-block";
+    } else {
+        document.getElementById('adminIcon').style.display = "none";
     }
     document.getElementById('cartIcon').style.display = "inline-block";
     document.getElementById('heartBtn').style.display = "inline-block";
@@ -65,8 +81,8 @@ cartBtn.addEventListener('click', function () {
     }
 });
 
-const hearBtn = document.getElementById('heartBtn')
-hearBtn.addEventListener('click', function () {
+const heartBtn = document.getElementById('heartBtn')
+heartBtn.addEventListener('click', function () {
     if (!auth.currentUser) {
         document.getElementById('userBtn').click();
     }
@@ -114,7 +130,7 @@ loginForm.addEventListener('submit', async (event) => {
         const user = userCredential.user;
         const tokenID = await user.getIdToken();
         localStorage.setItem('tokenID', tokenID);
-        console.log('Logged in successfully:', tokenID);
+        //console.log('Logged in successfully:', tokenID);
         const closeBtn = document.querySelector(".popup .close-btn");
         closeBtn.click();
     } catch (error) {
@@ -282,3 +298,39 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
     */
+
+const addAdminForm = document.getElementById('addAdminForm');
+addAdminForm.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    /*
+    const email = document.getElementById('emailAdmin').value;
+
+    try {
+        const response = await fetch('/addAdminRole', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ email: email })
+        });
+
+        if (response.ok) {
+            const data = await response.json();
+            console.log('Server response:', data);
+            if (data.success) {
+                alert('Admin role added successfully!');
+            } else {
+                console.error('Error:', data.message); // Handle potential error message
+                alert('Failed to add admin role. Please try again.');
+            }
+        } else {
+            console.error('Error adding admin role:', response.status);
+            alert('Failed to add admin role. Please try again.');
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        alert('An error occurred. Please try again.');
+    }
+    */
+});
+

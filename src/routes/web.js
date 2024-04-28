@@ -16,6 +16,8 @@ const initWebRoute = (app) => {
     router.post('/user-info', homeController.postUserInfo);
     router.get('/user-info', homeController.getUserInfo);
     //router.post('upload-avatar', homeController.uploadAvatar);
+    router.get('/admin', homeController.getAdminPage);
+    router.post('/addAdminRole', homeController.addAdminRole);
     return app.use('/', router);
 }
 

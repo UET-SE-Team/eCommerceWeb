@@ -1,5 +1,6 @@
 const connection = require('../configs/connectDB');
-const db = connection.admin.firestore();
+const admin = connection.admin;
+const db = admin.firestore();
 
 var uid;
 
@@ -139,6 +140,33 @@ const uploadAvatar = async (req, res) => {
     });
 }
 */
+
+const getAdminPage = async (req, res) => {
+    res.render('admin.ejs');
+}
+
+const addAdminRole = async (req, res) => {
+    const email = req.body.email;
+    console.log(email);
+    try {
+        return admin.auth().getUserByEmail(email)
+            .then(user => {
+                return admin.auth().setCustomUserClaims(user.uid, {
+                    admin: true
+                }).then(() => {
+                    console.log(">>>sucess uid: " + user.uid);
+                    res.redirect('/admin');
+                    //res.status(200).json({ success: true });
+                })
+            })
+            .catch(error => {
+                res.status(500).send(error);
+            });
+    } catch (error) {
+        res.status(500).send(error);
+    }
+}
+
 module.exports = {
     getHomePage,
     getUsers,
@@ -153,4 +181,6 @@ module.exports = {
     postUserInfo,
     getUserInfo,
     //uploadAvatar
+    getAdminPage,
+    addAdminRole
 };

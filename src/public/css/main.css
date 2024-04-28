@@ -876,10 +876,10 @@ input .avatar {
     font-weight: bold;
 }
 
-#username::before,
-#your-name::before,
+#firstName::before,
+#lastName::before,
 #email::before,
-#phone-number::before,
+#phoneNumber::before,
 #dob::before,
 #gender::before {
     position: absolute;

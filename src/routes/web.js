@@ -11,7 +11,11 @@ const initWebRoute = (app) => {
     router.get('/edit-user/:userID', homeController.getEditingPage);
     router.get('/checkout', homeController.getCheckoutPage);
     router.get('/product-details', homeController.getProductDetailsPage);
+    router.post('/settings', homeController.postSettings);
     router.get('/settings', homeController.getSettings);
+    router.post('/user-info', homeController.postUserInfo);
+    router.get('/user-info', homeController.getUserInfo);
+    //router.post('upload-avatar', homeController.uploadAvatar);
     return app.use('/', router);
 }
 

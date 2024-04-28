@@ -29,12 +29,10 @@
             <button type="button" class="btn position-relative" id="avatarBtn" style="display: none">
                 <div class="dropdown">
                     <!--i class="fa fa-user"></i-->
-                    <a href="/settings" target="_blank">
-                        <img src="/images/avatar/default.jpg" alt="Avatar" class="avatar">
-                    </a>
+                    <img src="/images/avatar/default.jpg" alt="Avatar" class="avatar avatarImg">
                     <i class="fas fa-angle-down"></i>
                     <div class="dropdown-content">
-                        <a href="/settings" target="_blank">Settings</a>
+                        <a href="/settings" target="_blank" id="settingBtn">Settings</a>
                         <a id="logOutBtn">Log out</a>
                     </div>
                 </div>
@@ -138,7 +136,7 @@
                 <span>Or use your email password</span>
                 <input type="email" placeholder="Email" name="email" required>
                 <input type="password" placeholder="Password" name="password" required>
-                <a href="#" id="forget-pass"><u>Forget Your Password?</u></a>
+                <a href="" id="forget-pass"><u>Forget Your Password?</u></a>
                 <button class="submit-button" type="submit">Sign In</button>
             </form>
         </div>

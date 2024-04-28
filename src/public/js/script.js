@@ -37,10 +37,12 @@ const closeBtn = document.querySelector(".popup .close-btn");
 const overlayer = document.querySelector(".overlayer");
 
 userBtn.addEventListener("click", function () {
-  popup.classList.toggle("active");
+  if (!popup.classList.contains("active")) {
+    popup.classList.add("active");
 
-  // blur the background when logging in/signing up
-  overlayer.classList.toggle("pop");
+    // Blur the background when logging in/signing up
+    overlayer.classList.add("pop");
+  }
 });
 closeBtn.addEventListener("click", function () {
   popup.classList.remove("active");

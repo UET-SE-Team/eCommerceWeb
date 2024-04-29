@@ -55,7 +55,7 @@ onAuthStateChanged(auth, async (user) => {
         const userInfo = await getUserInfo(auth.currentUser.uid);
         document.getElementById('userBtn').style.display = "none";
         document.getElementById('avatarBtn').style.display = "inline-block";
-        document.querySelectorAll('.avatar').forEach(img => {
+        document.querySelectorAll('.avatarImg').forEach(img => {
             img.src = userInfo.avatarLink;
         });
     } else {
@@ -231,106 +231,8 @@ logOutBtn.addEventListener('click', (event) => {
     });
 });
 
-/*
-// JavaScript code
-document.addEventListener('DOMContentLoaded', function () {
-    const saveButton = document.getElementById('saveButton');
-    const fileInput = document.getElementById('input-file');
-    let changesMade = false;
-
-    // Kiểm tra xem có thông tin nào được thay đổi không
-    const checkChanges = () => {
-        const inputs = document.querySelectorAll('.form-control');
-        for (const input of inputs) {
-            if (input.value !== input.defaultValue) {
-                changesMade = true;
-                return;
-            }
-        }
-        changesMade = false;
-    };
-
-    // Kích hoạt hoặc vô hiệu hóa nút "Save changes"
-    const toggleSaveButton = () => {
-        if (changesMade) {
-            saveButton.removeAttribute('disabled');
-        } else {
-            saveButton.setAttribute('disabled', 'disabled');
-        }
-    };
-
-    // Thêm sự kiện cho các trường nhập liệu để kiểm tra thay đổi
-    const formInputs = document.querySelectorAll('.form-control');
-    formInputs.forEach(input => {
-        input.addEventListener('input', () => {
-            checkChanges();
-            toggleSaveButton();
-        });
-    });
-
-    // Thêm sự kiện cho nút "Upload image" để lưu hình ảnh
-    fileInput.addEventListener('change', async (event) => {
-        const file = event.target.files[0];
-        if (file) {
-            const formData = new FormData();
-            formData.append('avatar', file);
-            try {
-                const response = await fetch('/upload-avatar', {
-                    method: 'POST',
-                    body: formData
-                });
-                if (response.ok) {
-                    const imagePath = await response.text();
-                    console.log('Image uploaded successfully:', imagePath);
-                    // Update image src attribute
-                    const avatarImage = document.querySelector('.avatar');
-                    avatarImage.src = imagePath;
-                    // Cập nhật biến changesMade
-                    changesMade = true;
-                    toggleSaveButton();
-                } else {
-                    console.error('Failed to upload image');
-                }
-            } catch (error) {
-                console.error('Error uploading image:', error);
-            }
-        }
-    });
-});
-    */
-
-const addAdminForm = document.getElementById('addAdminForm');
-addAdminForm.addEventListener('submit', async (event) => {
-    event.preventDefault();
-    /*
-    const email = document.getElementById('emailAdmin').value;
-
-    try {
-        const response = await fetch('/addAdminRole', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ email: email })
-        });
-
-        if (response.ok) {
-            const data = await response.json();
-            console.log('Server response:', data);
-            if (data.success) {
-                alert('Admin role added successfully!');
-            } else {
-                console.error('Error:', data.message); // Handle potential error message
-                alert('Failed to add admin role. Please try again.');
-            }
-        } else {
-            console.error('Error adding admin role:', response.status);
-            alert('Failed to add admin role. Please try again.');
-        }
-    } catch (error) {
-        console.error('Error:', error);
-        alert('An error occurred. Please try again.');
-    }
-    */
+document.getElementById('input-file').addEventListener('change', function () {
+    document.getElementById('uid').value = auth.currentUser.uid;
+    document.getElementById('avatarForm').submit();
 });
 

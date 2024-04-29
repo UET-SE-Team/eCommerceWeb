@@ -70,12 +70,13 @@ home.addEventListener('click', function () {
   productsDetails.classList.remove('active');
 });
 
-// search on navbar 
-function toggleSearchInput() {
-  var searchInput = document.getElementById("searchInput");
-  if (searchInput.style.display === "none") {
-      searchInput.style.display = "inline-block";
-  } else {
-      searchInput.style.display = "none";
-  }
+// search bar dropdown
+function showSearchBar() {
+  var searchBar = document.querySelector('.search-bar');
+  searchBar.style.display = 'block';
+}
+
+function hideSearchBar() {
+  var searchBar = document.querySelector('.search-bar');
+  searchBar.style.display = 'none';
 }

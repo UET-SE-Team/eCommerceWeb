@@ -17,11 +17,23 @@
                 <span class="position-absolute top-0 start-100 translate-middle badge bg-primary text-white">2</span>
             </button>
 
-            <button type="button" class="btn position-relative" id="searchBtn" onclick="toggleSearchInput()">
-                <i class="fa fa-search"></i>
-                <span class="position-absolute top-0 start-100 translate-middle badge bg-primary"></span>
-            </button>
-            <input type="search" id="searchInput" placeholder="   Search..." style="display: none;">
+            <div class="search-button">
+                <button class="hover-button" onmouseenter="showSearchBar()" onmouseleave="hideSearchBar()">
+                    <i class="fa fa-search"></i>
+                </button>
+                <div class="search-bar" onmouseenter="showSearchBar()" onmouseleave="hideSearchBar()">
+                    <input type="text" placeholder="Search...">
+                    <button class="search-button">Search</button>
+                </div>
+            </div>
+            <!-- <button type="button" class="btn position-relative" id="searchBtn">
+                <div class="dropdown">
+                    <i class="fa fa-search"></i>
+                    <div class="dropdown-search">
+                        <a><input type="search" id="searchInput" placeholder="   Search..." style="display: none;"></a>
+                    </div>
+                </div>
+            </button> -->
 
             <button type="button" class="btn position-relative" id="adminIcon" style="display: none;">
                 <i class="fas fa-user-shield"></i>

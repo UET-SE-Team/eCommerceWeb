@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Luminé</title>
+    <title>Luminé | Homepage</title>
 
     <!-- font awesome cdn -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
@@ -15,196 +15,12 @@
     <!-- bootstrap css -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <!-- custom css css -->
-    <link rel="stylesheet" href="/css/main.css">
+    <!-- custom css -->
+    <link rel="stylesheet" href="css/main.css">
 </head>
 
 <body>
-    <!-- navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white py-4 fixed-top">
-        <div class="container">
-            <a class="navbar-brand d-flex justify-content-between align-items-center order-lg-0" href="index.html">
-                <img src="images/shopping-bag-icon.png" alt="site icon">
-                <span class="text-uppercase fw-lighter ms-2">Luminé</span>
-            </a>
-
-            <div class="order-lg-2 nav-btns">
-                <button type="button" class="btn position-relative" id="cartIcon">
-                    <i class="fa fa-shopping-cart"></i>
-                    <span
-                        class="position-absolute top-0 start-100 translate-middle badge bg-primary text-white">5</span>
-                </button>
-                <button type="button" class="btn position-relative">
-                    <i class="fa fa-heart" id="heart-btn"></i>
-                    <span
-                        class="position-absolute top-0 start-100 translate-middle badge bg-primary text-white">2</span>
-                </button>
-                <button type="button" class="btn position-relative">
-                    <i class="fa fa-search"></i>
-                    <span class="position-absolute top-0 start-100 translate-middle badge bg-primary"></span>
-                </button>
-
-                <!-- USER'S LOGIN BTN -->
-                <button type="button" class="btn position-relative" id="userBtn">
-                    <i class="fa fa-user"></i>
-                    <span class="position-absolute top-0 start-100 translate-middle badge bg-primary"></span>
-                </button>
-            </div>
-
-            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse order-lg-1" id="navMenu">
-                <ul class="navbar-nav mx-auto text-center align-items-center">
-                    <li class="nav-item px-2 py-2">
-                        <a class="nav-link text-uppercase text-dark" href="#header">home</a>
-                    </li>
-                    <li class="nav-item px-2 py-2">
-                        <a class="nav-link text-uppercase text-dark" href="#collection">collection</a>
-                    </li>
-                    <li class="nav-item px-2 py-2">
-                        <div class="dropdown">
-                            <button class="nav-link text-uppercase text-dark dropbtn" href="#products"
-                                id="productsBtn">Products
-                                <i class="fas fa-angle-down"></i>
-                            </button>
-                            <div class="dropdown-content">
-                                <a href="#">Hoodie</a>
-                                <a href="#">Skirt</a>
-                                <a href="#">Trousers</a>
-                                <a href="#">Shorts</a>
-                                <a href="#">T-shirt</a>
-                                <a href="#">Shirt</a>
-                                <a href="#">Jacket</a>
-                                <a href="#">Watch</a>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="nav-item px-2 py-2">
-                        <a class="nav-link text-uppercase text-dark" href="#special">specials</a>
-                    </li>
-                    <li class="nav-item px-2 py-2">
-                        <a class="nav-link text-uppercase text-dark" href="#blogs">blogs</a>
-                    </li>
-                    <li class="nav-item px-2 py-2">
-                        <a class="nav-link text-uppercase text-dark" href="#about">about us</a>
-                    </li>
-                    <li class="nav-item px-2 py-2">
-                        <a class="nav-link text-uppercase text-dark" href="#popular">popular</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-    <!-- end of navbar -->
-
-    <!-- overlayer -->
-    <div class="overlayer"></div>
-    <!-- end of overlayer -->
-
-    <div class="popup">
-        <!-- CLOSE BTN -->
-        <div class="close-btn">
-            &times;
-        </div>
-
-        <!-- LOGIN/SIGN-UP FORM -->
-        <div class="user-box" id="user-box">
-            <div class="form-container sign-up">
-                <form>
-                    <h1>Create Account</h1>
-                    <div class="social-icons">
-                        <a href="#" class="icon">
-                            <i class="fa-brands fa-google-plus-g"></i>
-                        </a>
-                        <a href="#" class="icon">
-                            <i class="fa-brands fa-facebook-f"></i>
-                        </a>
-                        <a href="#" class="icon">
-                            <i class="fa-brands fa-twitter"></i>
-                        </a>
-                        <a href="#" class="icon">
-                            <i class="fa-brands fa-linkedin-in"></i>
-                        </a>
-                    </div>
-                    <span>Or use your email to register!</span>
-                    <input type="text" placeholder="Name">
-                    <input type="email" placeholder="Email">
-                    <input type="password" placeholder="Password">
-                    <button>Sign Up</button>
-                </form>
-            </div>
-            <div class="form-container sign-in">
-                <form>
-                    <h1>Sign In</h1>
-                    <div class="social-icons">
-                        <a href="#" class="icon">
-                            <i class="fa-brands fa-google-plus-g"></i>
-                        </a>
-                        <a href="#" class="icon">
-                            <i class="fa-brands fa-facebook-f"></i>
-                        </a>
-                        <a href="#" class="icon">
-                            <i class="fa-brands fa-twitter"></i>
-                        </a>
-                        <a href="#" class="icon">
-                            <i class="fa-brands fa-linkedin-in"></i>
-                        </a>
-                    </div>
-                    <span>Or use your email password</span>
-                    <input type="email" placeholder="Email">
-                    <input type="password" placeholder="Password">
-                    <a href="#" id="forget-pass"><u>Forget Your Password?</u></a>
-                    <button>Sign In</button>
-                </form>
-            </div>
-            <div class="toggle-container">
-                <div class="toggle">
-                    <div class="toggle-panel toggle-left">
-                        <h1>Welcome Back!</h1>
-                        <p>Enter your personal details to use all of site features</p>
-                        <button class="hidden" id="login">Sign In</button>
-                    </div>
-                    <div class="toggle-panel toggle-right">
-                        <h1>Hello, Friend!</h1>
-                        <p>Register with your personal details to use all of site features</p>
-                        <button class="hidden" id="register">Sign Up</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- shopping cart -->
-    <div class="cartTab">
-        <h1><b>Shopping Cart</b></h1>
-        <div class="listCart">
-            <div class="item">
-                <div class="image">
-                    <img src="images/c_formal_gray_shirt.png">
-                </div>
-                <div class="name">
-                    NAME
-                </div>
-                <div class="price">
-                    $200
-                </div>
-                <div class="quantity">
-                    <span class="minus">
-                        << /span>
-                            <span style="color: black;">1</span>
-                            <span class="plus">></span>
-                </div>
-            </div>
-        </div>
-        <div class="btnCart">
-            <button id="closeBtn">
-                << CONTINUE SHOPPING</button>
-                    <button id="checkoutBtn">CHECK OUT</button>
-        </div>
-    </div>
-    <!-- end of shopping cart -->
+    <%- include ('navbar.ejs') -%>
 
     <!-- header -->
     <header id="header" class="vh-100 carousel slide" data-bs-ride="carousel" data-bs- style="padding-top: 104px">
@@ -241,7 +57,8 @@
                 <div class="d-flex flex-wrap justify-content-center mt-5 filter-button-group">
                     <button type="button" class="btn m-2 text-dark active-filter-btn fw-bold" data-filter="*">
                         All</button>
-                    <button type="button" class="btn m-2 text-dark fw-bold" data-filter=".best"> Best Sellers</button>
+                    <button type="button" class="btn m-2 text-dark fw-bold" data-filter=".best"> Best
+                        Sellers</button>
                     <button type="button" class="btn m-2 text-dark fw-bold" data-filter=".feat"> Featured</button>
                     <button type="button" class="btn m-2 text-dark fw-bold" data-filter=".new"> New Arrival</button>
                 </div>
@@ -499,16 +316,11 @@
                 <div class="card border-0 col-md-6 col-lg-4 bg-transparent my-3">
                     <img src="images/blog_1.jpg" alt="">
                     <div class="card-body px-0">
-                        <h4 class="card-title">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quos commodi
-                            cum quae sapiente accusantium labore aliquam doloremque atque exercitationem harum culpa,
-                            nulla modi illo itaque esse natus blanditiis totam. Autem?</h4>
-                        <p class="card-text mt-3 text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                            Recusandae obcaecati laborum quisquam, nemo quas quam ad eius quibusdam excepturi voluptate
-                            magnam? Reiciendis veritatis blanditiis dignissimos explicabo veniam praesentium deserunt
-                            qui!</p>
+                        <h4 class="card-title">My Favorite Work From Home Outfits</h4>
+                        <p class="card-text mt-3 text-muted">Back with another workwear post. Last week, I posted about my favorite “corporate” outfits. Now I want to flip the switch and talk about work from home outfits! I, personally, love getting dressed when I’m working from home. If I’m…</p>
                         <p class="card-text">
                             <small class="text-muted">
-                                <span class="fw-bold">Author: </span>John Doe
+                                <span class="fw-bold">Author: </span>Mary Colphie
                             </small>
                         </p>
                         <a href="#" class="btn fw-bold">Read More</a>
@@ -517,16 +329,11 @@
                 <div class="card border-0 col-md-6 col-lg-4 bg-transparent my-3">
                     <img src="images/blog_2.jpg" alt="">
                     <div class="card-body px-0">
-                        <h4 class="card-title">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quos commodi
-                            cum quae sapiente accusantium labore aliquam doloremque atque exercitationem harum culpa,
-                            nulla modi illo itaque esse natus blanditiis totam. Autem?</h4>
-                        <p class="card-text mt-3 text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                            Recusandae obcaecati laborum quisquam, nemo quas quam ad eius quibusdam excepturi voluptate
-                            magnam? Reiciendis veritatis blanditiis dignissimos explicabo veniam praesentium deserunt
-                            qui!</p>
+                        <h4 class="card-title">How To Put Together A Cool Corporate Outfit</h4>
+                        <p class="card-text mt-3 text-muted">Let’s talk about outfits for work. It’s safe to say (in most cases), gone are the days of pencil skirts and blazers. Not saying these AREN’T worn anymore in the office, but I think overall work environments have changed. Actually…</p>
                         <p class="card-text">
                             <small class="text-muted">
-                                <span class="fw-bold">Author: </span>John Doe
+                                <span class="fw-bold">Author: </span>Sophia Harry
                             </small>
                         </p>
                         <a href="#" class="btn fw-bold">Read More</a>
@@ -535,16 +342,11 @@
                 <div class="card border-0 col-md-6 col-lg-4 bg-transparent my-3">
                     <img src="images/blog_3.jpg" alt="">
                     <div class="card-body px-0">
-                        <h4 class="card-title">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quos commodi
-                            cum quae sapiente accusantium labore aliquam doloremque atque exercitationem harum culpa,
-                            nulla modi illo itaque esse natus blanditiis totam. Autem?</h4>
-                        <p class="card-text mt-3 text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                            Recusandae obcaecati laborum quisquam, nemo quas quam ad eius quibusdam excepturi voluptate
-                            magnam? Reiciendis veritatis blanditiis dignissimos explicabo veniam praesentium deserunt
-                            qui!</p>
+                        <h4 class="card-title">Spring Capsule Wardrobe: Key Staples to Wear this Season</h4>
+                        <p class="card-text mt-3 text-muted">Back by popular demand! The 2024 spring capsule wardrobe is here! Thank you for being patient while I fine-tuned the selected items. If you've been following me for a while you know I've been creating capsule wardrobes for years. I started this collage-style format back Fall 2021 (in 2019 I was shooting pictures of me in each look) and over the past few seasons you guys have requested the looks to be photographed on me again. So I'm kicking off the spring capsule with collage-style ideas AND outfits styled on myself. I</p>
                         <p class="card-text">
                             <small class="text-muted">
-                                <span class="fw-bold">Author: </span>John Doe
+                                <span class="fw-bold">Author: </span>Hazzy Menphouis
                             </small>
                         </p>
                         <a href="#" class="btn fw-bold">Read More</a>
@@ -563,12 +365,12 @@
                     <div class="title pt-3 pb-5">
                         <h2 class="position-relative d-inline-block ms-4">About Us</h2>
                     </div>
-                    <p class="lead text-muted">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloribus porro
-                        quod culpa placeat perspiciatis excepturi, dignissimos libero numquam ad beatae sint facere
-                        voluptatibus? Ex enim commodi, illum iure soluta corporis.</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores est nostrum tempore laborum,
-                        exercitationem soluta quasi facere, iure, excepturi vel minima perspiciatis. Omnis praesentium
-                        nesciunt quaerat nobis voluptatum hic. Odit.</p>
+                    <p class="lead text-muted">
+                        Established in 2020, Luminé is a premier fashion store that offers a wide range of clothing, bags, and watches for both men and women. Our mission is to provide our customers with the latest trends and timeless styles that keep you looking fashionable all year round. 
+                    </p>
+                    <p>At Luminé, we carefully curate our collections to ensure that you have access to the most stylish and trendy pieces. Whether you're looking for a chic dress, a statement bag, or a sleek timepiece, our diverse selection caters to every fashion preference.<br><br> 
+                        We pride ourselves on staying ahead of the curve by constantly updating our inventory with the latest fashion trends. Our dedicated team of fashion enthusiasts works tirelessly to bring you the freshest styles, ensuring that you're always on top of your fashion game.
+                    </p>
                 </div>
                 <div class="col-lg-6">
                     <img src="images/about_us.jpg" alt="" class="img-fluid">
@@ -673,9 +475,13 @@
                     <h2 class="position-relative d-inline-block ms-4">Newsletter Subscription</h2>
                 </div>
 
-                <p class="text-center text-muted">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ratione
-                    facere rerum obcaecati consequatur atque. Voluptatibus tempore nam reiciendis soluta, magnam
-                    nesciunt architecto, reprehenderit cupiditate aliquid corporis fugit recusandae amet quia!</p>
+                <p class="text-center text-muted">Stay in the loop with the latest fashion trends and exclusive offers by subscribing to our newsletter. Don't miss out on: 
+                    New arrivals and collection updates; 
+                    Special promotions and discounts; 
+                    Styling tips and inspiration and 
+                    Event invitations.
+                    <br><br>
+                    Don't wait! Subscribe now and elevate your fashion game!</p>
                 <div class="input-group mb-3 mt-3">
                     <input type="text" class="form-control" placeholder="Enter Your Email">
                     <button class="btn btn-primary fw-bold" type="submit">Subscribe</button>
@@ -685,118 +491,7 @@
     </section>
     <!-- end of newsletter -->
 
-    <!-- footer -->
-    <footer class="bg-dark py-5">
-        <div class="container">
-            <div class="row text-white g-4">
-                <div class="col-md-6 col-lg-3">
-                    <a class="text-uppercase text-decoration-none brand text-white" href="index.html">Luminé</a>
-                    <p class="text-white text-muted mt-3">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Nostrum mollitia quisquam veniam odit cupiditate, ullam aut voluptas velit dolor ipsam?</p>
-                </div>
-
-                <div class="col-md-6 col-lg-3">
-                    <h5 class="fw-light">Links</h5>
-                    <ul class="list-unstyled">
-                        <li class="my-3">
-                            <a href="#" class="text-white text-decoration-none text-muted">
-                                <i class="fas fa-chevron-right me-1"></i> Home
-                            </a>
-                        </li>
-                        <li class="my-3">
-                            <a href="#" class="text-white text-decoration-none text-muted">
-                                <i class="fas fa-chevron-right me-1"></i> Collection
-                            </a>
-                        </li>
-                        <li class="my-3">
-                            <a href="#" class="text-white text-decoration-none text-muted">
-                                <i class="fas fa-chevron-right me-1"></i> Blogs
-                            </a>
-                        </li>
-                        <li class="my-3">
-                            <a href="#" class="text-white text-decoration-none text-muted">
-                                <i class="fas fa-chevron-right me-1"></i> About Us
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="col-md-6 col-lg-3">
-                    <h5 class="fw-light mb-3">Contact Us</h5>
-                    <div class="d-flex justify-content-start align-items-start my-2 text-muted">
-                        <span class="me-3">
-                            <i class="fas fa-map-marked-alt"></i>
-                        </span>
-                        <span class="fw-light">
-                            Albert Street, New York, AS 756, United States of America
-                        </span>
-                    </div>
-                    <div class="d-flex justify-content-start align-items-start my-2 text-muted">
-                        <span class="me-3">
-                            <i class="fas fa-envelope"></i>
-                        </span>
-                        <span class="fw-light">
-                            lumine.support@gmail.com
-                        </span>
-                    </div>
-                    <div class="d-flex justify-content-start align-items-start my-2 text-muted">
-                        <span class="me-3">
-                            <i class="fas fa-phone-alt"></i>
-                        </span>
-                        <span class="fw-light">
-                            +9786 6776 236
-                        </span>
-                    </div>
-                </div>
-
-                <div class="col-md-6 col-lg-3">
-                    <h5 class="fw-light mb-3">Follow Us</h5>
-                    <div>
-                        <ul class="list-unstyled d-flex">
-                            <li>
-                                <a href="#" class="text-white text-decoration-none text-muted fs-4 me-4">
-                                    <i class="fab fa-facebook-f"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="text-white text-decoration-none text-muted fs-4 me-4">
-                                    <i class="fab fa-twitter"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="text-white text-decoration-none text-muted fs-4 me-4">
-                                    <i class="fab fa-instagram"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="text-white text-decoration-none text-muted fs-4 me-4">
-                                    <i class="fab fa-pinterest"></i>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-    <!-- end of footer -->
-
-    <!-- jquery -->
-    <script src="js/jquery-3.7.1.js"></script>
-    <!-- isotope js -->
-    <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.js"></script>
-    <!-- bootstrap js -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
-        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
-        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
-        crossorigin="anonymous"></script>
-    <!-- custom js -->
-    <script src="js/script.js"></script>
+    <%- include ('footer.ejs') -%>
 </body>
 
 </html>

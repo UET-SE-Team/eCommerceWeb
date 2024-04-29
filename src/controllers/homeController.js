@@ -1,5 +1,8 @@
 const connection = require('../configs/connectDB');
-const db = connection.admin.firestore();
+const admin = connection.admin;
+const db = admin.firestore();
+
+var uid;
 
 const getUsers = async (req, res) => {
     let userSnapshot = await db.collection('users').get();
@@ -15,16 +18,22 @@ const getUsers = async (req, res) => {
 const createUser = async (req, res) => {
     try {
         let user = req.body;
-        await db.collection('users').add({
-            firstName: user.firstName,
-            lastName: user.lastName,
-            email: user.email,
-            phoneNumber: user.phoneNumber,
-            address: user.address,
-            avatarLink: user.avatarLink
-        });
-        console.log(`>>> User has been added successfully.`);
-        res.redirect('/');
+        const userDoc = await db.collection('users').doc(user.uid).get();
+
+        if (!userDoc.exists) {
+            await db.collection('users').doc(user.uid).set({
+                email: user.email,
+                firstName: user.firstName,
+                lastName: user.lastName,
+                phoneNumber: user.phoneNumber,
+                avatarLink: user.avatarLink,
+            });
+            console.log(`>>> User has been added successfully `);
+            res.redirect('/');
+        } else {
+            console.log(`>>> User already exists `);
+            res.status(400).send('User already exists');
+        }
     } catch (error) {
         console.error('>>> Error submitting user:', error);
         res.status(500).send('Error submitting user');
@@ -65,6 +74,91 @@ const updateUser = async (req, res) => {
     }
 }
 
+const getCheckoutPage = async (req, res) => {
+    res.render('checkout.ejs');
+}
+
+const getProductDetailsPage = async (req, res) => {
+    res.render('product-details.ejs');
+}
+
+const postSettings = async (req, res) => {
+    uid = req.body.uid;
+}
+
+const getSettings = async (req, res) => {
+    db.collection('users').doc(uid).get()
+        .then(doc => {
+            let info = doc.data();
+            res.render('settings.ejs', { userData: info });
+        })
+        .catch(error => {
+            console.error('Error getting user data:', error);
+            res.status(500).send('Internal Server Error');
+        });
+}
+
+const postUserInfo = async (req, res) => {
+    uid = req.body.uid;
+    db.collection('users').doc(uid).get()
+        .then(doc => {
+            let info = doc.data();
+            return res.json(info);
+        })
+        .catch(error => {
+            console.error('Error getting user data:', error);
+            res.status(500).send('Internal Server Error');
+        });
+}
+
+const getUserInfo = async (req, res) => {
+    db.collection('users').doc(uid).get()
+        .then(doc => {
+            let info = doc.data();
+            return res.json(info);
+        })
+        .catch(error => {
+            console.error('Error getting user data:', error);
+            res.status(500).send('Internal Server Error');
+        });
+}
+const uploadAvatar = async (req, res) => {
+    console.log(req.body.uid);
+    console.log("Tên tệp tải lên:", req.file.filename);
+    const avtLink = '/images/avatar/' + req.file.filename;
+    await db.collection('users').doc(req.body.uid).set({
+        avatarLink: avtLink
+    }).then(() => {
+        res.redirect('/settings');
+    })
+}
+
+const getAdminPage = async (req, res) => {
+    res.render('admin.ejs');
+}
+
+const addAdminRole = async (req, res) => {
+    const email = req.body.email;
+    console.log(email);
+    try {
+        return admin.auth().getUserByEmail(email)
+            .then(user => {
+                return admin.auth().setCustomUserClaims(user.uid, {
+                    admin: true
+                }).then(() => {
+                    console.log(">>>sucess uid: " + user.uid);
+                    res.redirect('/admin');
+                    //res.status(200).json({ success: true });
+                })
+            })
+            .catch(error => {
+                res.status(500).send(error);
+            });
+    } catch (error) {
+        res.status(500).send(error);
+    }
+}
+
 module.exports = {
     getHomePage,
     getUsers,
@@ -72,4 +166,13 @@ module.exports = {
     deleteUser,
     updateUser,
     getEditingPage,
+    getCheckoutPage,
+    getProductDetailsPage,
+    getSettings,
+    postSettings,
+    postUserInfo,
+    getUserInfo,
+    uploadAvatar,
+    getAdminPage,
+    addAdminRole
 };

@@ -5,20 +5,23 @@
             <img src="/images/shopping-bag-icon.png" alt="site icon">
             <span class="text-uppercase fw-lighter ms-2">Luminé</span>
         </a>
-
+        
         <div class="order-lg-2 nav-btns">
             <button type="button" class="btn position-relative" id="cartIcon" style="display: none;">
                 <i class="fa fa-shopping-cart"></i>
                 <span class="position-absolute top-0 start-100 translate-middle badge bg-primary text-white">5</span>
             </button>
+
             <button type="button" class="btn position-relative" id="heartBtn" style="display: none;">
                 <i class="fa fa-heart" id="heart-btn"></i>
                 <span class="position-absolute top-0 start-100 translate-middle badge bg-primary text-white">2</span>
             </button>
-            <button type="button" class="btn position-relative" id="searchBtn" style="display: none;">
+
+            <button type="button" class="btn position-relative" id="searchBtn" onclick="toggleSearchInput()">
                 <i class="fa fa-search"></i>
                 <span class="position-absolute top-0 start-100 translate-middle badge bg-primary"></span>
             </button>
+            <input type="search" id="searchInput" placeholder="   Search..." style="display: none;">
 
             <button type="button" class="btn position-relative" id="adminIcon" style="display: none;">
                 <i class="fas fa-user-shield"></i>

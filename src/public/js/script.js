@@ -65,13 +65,17 @@ const productsDetails = document.querySelector('#products-details');
 const home = document.querySelector('#home');
 const dropdownContent = document.querySelector('.dropdown-content');
 
-/*
-dropdownContent.addEventListener('click', function() {
-  homePage.classList.add('hidden');
-  productsDetails.classList.add('active');
-});
-*/
 home.addEventListener('click', function () {
   homePage.classList.remove('hidden');
   productsDetails.classList.remove('active');
 });
+
+// search on navbar 
+function toggleSearchInput() {
+  var searchInput = document.getElementById("searchInput");
+  if (searchInput.style.display === "none") {
+      searchInput.style.display = "inline-block";
+  } else {
+      searchInput.style.display = "none";
+  }
+}

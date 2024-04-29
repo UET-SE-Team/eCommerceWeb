@@ -1,4 +1,15 @@
 const express = require('express');
+const multer = require('multer');
+const path = require('path');
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, './src/public/images/avatar/');
+    },
+    filename: function (req, file, cb) {
+        cb(null, `${Date.now()}${path.extname(file.originalname)}`);
+    }
+});
+const upload = multer({ storage: storage });
 const router = express.Router();
 const homeController = require('../controllers/homeController');
 
@@ -15,7 +26,7 @@ const initWebRoute = (app) => {
     router.get('/settings', homeController.getSettings);
     router.post('/user-info', homeController.postUserInfo);
     router.get('/user-info', homeController.getUserInfo);
-    //router.post('upload-avatar', homeController.uploadAvatar);
+    router.post('/upload-avatar', upload.single('avatar'), homeController.uploadAvatar);
     router.get('/admin', homeController.getAdminPage);
     router.post('/addAdminRole', homeController.addAdminRole);
     return app.use('/', router);

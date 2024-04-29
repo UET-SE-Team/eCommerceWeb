@@ -122,24 +122,16 @@ const getUserInfo = async (req, res) => {
             res.status(500).send('Internal Server Error');
         });
 }
-/*
 const uploadAvatar = async (req, res) => {
-    const file = req.files.avatar;
-
-    const extension = file.name.split('.').pop();
-    const fileName = `${uid}.${extension}`;
-    const filePath = `public/images/avatar/${fileName}`;
-
-    file.mv(filePath, (error) => {
-        if (error) {
-            console.error('Error uploading image:', error);
-            return res.status(500).send('Internal Server Error');
-        }
-        // Trả về đường dẫn của hình ảnh đã lưu
-        res.send(`/images/avatar/${fileName}`);
-    });
+    console.log(req.body.uid);
+    console.log("Tên tệp tải lên:", req.file.filename);
+    const avtLink = '/images/avatar/' + req.file.filename;
+    await db.collection('users').doc(req.body.uid).set({
+        avatarLink: avtLink
+    }).then(() => {
+        res.redirect('/settings');
+    })
 }
-*/
 
 const getAdminPage = async (req, res) => {
     res.render('admin.ejs');
@@ -180,7 +172,7 @@ module.exports = {
     postSettings,
     postUserInfo,
     getUserInfo,
-    //uploadAvatar
+    uploadAvatar,
     getAdminPage,
     addAdminRole
 };
